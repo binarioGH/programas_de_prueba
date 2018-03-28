@@ -14,8 +14,7 @@ if __name__ == '__main__':
         for b in bincode:
         	if b == '1':
         		total += count
-        		count += count
+        	count += count
         print(total)
-    else:
-    	print("los codigos binarios solo tienen 8 digitos")
+    
    
