@@ -17,6 +17,10 @@ if __name__ == '__main__':
 			print("{} es negativo".format(num))
 		else:
 			print("{} es positivo".format(num))
-	print("habia: {} ceros en la lista".format(zerocount))
+	c = "cero"
+	if zerocount > 1:
+		c = "ceros"
+
+	print("habia: {} {} en la lista".format(zerocount, c))
 
 
