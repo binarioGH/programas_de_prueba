@@ -3,7 +3,9 @@ import random
 import subprocess
 def game_over(wl):
 	subprocess.call(["cmd.exe","/c","cls"])
-	repit = input('''{}
+	repit = input('''
+		{}
+		
 		> Quiere repetir? Y/N: '''.format(wl))
 	repit = repit.upper()
 	if repit == "Y":
@@ -25,9 +27,9 @@ def battle(joestar, choosed_one):
 			salud de {} [{}]
 			salud de DIO [{}]
 
-		 0       0
-		/!\.    /!\.
-                / \.    / \.
+		          0        0
+		        ./!\.    ./!\.
+                        ./ \.    ./ \.
 
 			> "a" para atacar y "d" para defender: '''.format(choosed_one, life, enemy_life))
 		if fight == "a":
