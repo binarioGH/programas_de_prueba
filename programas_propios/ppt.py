@@ -33,7 +33,7 @@ if __name__ == '__main__':
 		except:
 			continue
 		else:
-			iachoice = random.randint(0, 2)
+			iachoice = random.randint(0, 3)
 			if choose == iachoice:
 				print("los 2 escojieron: {}".format(items[iachoice]))
 				getpass.getpass("Presiona enter para continuar...")
