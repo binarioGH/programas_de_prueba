@@ -1,17 +1,14 @@
 #-*-coding:utf-8-*-
 import subprocess
 import getpass
-def cfrar(dic, word, num, minim, maxim, mode):
-	count = 4
+def cfrar(dic, word, num, minim, maxim, cnt):
+	count = cnt
 	sentence = str()
 	for letter in word:
-		count = 4
+		count = cnt
 		for lt in dic[minim:maxim]:
 			if letter == lt:
-				if mode == "c":
-				    sentence += dic[count + num]
-				else:
-				    sentence += dic[count - num]	
+				sentence += dic[count + num]
 			else:
 				if letter == " ":
 					sentence += " " 
@@ -44,12 +41,12 @@ if __name__ == '__main__':
 		if ask == "c":
 			palabra = str(input("introduzca la frase o palabra que quiere cifrar: "))
 			palabra = palabra.lower()
-			result = cfrar(abc, palabra, -4, 3, 28, "c")
+			result = cfrar(abc, palabra, -4, 3, 28, 4)
 			print("la frase o palabra {} cifrada es: {}".format(palabra, result))
 			getpass.getpass("")
 		elif ask == "d":
 			palabra = str(input("introduzca la frase o palabra que quiere descifrar: "))
 			palabra = palabra.lower()
-			result = cfrar(abc, palabra, 4, 0, 24, "d")
+			result = cfrar(abc, palabra, 4, 0, 24, -1)
 			print("la frase o palabra {} descifrada es: {}".format(palabra, result))
 			getpass.getpass("")
