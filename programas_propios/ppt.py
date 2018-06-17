@@ -1,46 +1,34 @@
 #-*-coding: utf-8-*-
-import random
-import subprocess
-import getpass
-
-def check(ia, rival):
-	if ia == rival:
-		return -1
-	else:
-		return 1
+#-*-coding: utf-8 -*-
+from random import randint
+from getpass import getpass
+from subprocess import call
 
 if __name__ == '__main__':
-	count = 0
-	choose = int()
-	items = ("roca", "papel", "tijeras", "roca")
-	while choose != 98:
-		subprocess.call(["cmd.exe","/c","cls"])
-		try:
-			choose = int(input('''
-				[1]Roca
-				[2]Papel
-				[3]Tijera
+	chose = int()
+	opciones = ("tijeras","piedra", "papel", "tijera")
+	points = 0
+	pptpoints = 0
+	while chose != 99:
+		call(("cmd.exe","/c","cls"))
+		chose = int(input('''
+			PIEDRA, PAPEL O TIJERAS
+			tu: {}  ppt: {}
 
-				puntos: {}
+			[1] piedra
+			[2] papel
+			[3] tijeras
 
-				para salir escribe [100]
+			para salir: [99]
 
-				> '''.format(count)))
-			
-				
-			print("\n\n\n\n")
-			choose -= 1
-		except:
+			> '''.format(points, pptpoints)))
+		if chose == 99:
+			continue
+		pptchose = randint(-1, 2)
+		getpass("Escogiste: {} y la computadora: {}...".format(opciones[chose], opciones[pptchose]))
+		if pptchose > chose:
+			pptpoints += 1
+		elif pptpoints == chose:
 			continue
 		else:
-			iachoice = random.randint(0, 3)
-			if choose == iachoice:
-				print("los 2 escojieron: {}".format(items[iachoice]))
-				getpass.getpass("Presiona enter para continuar...")
-				continue
-			else:
-				print("ppt escogio: {}".format(items[iachoice]))
-				print("tu escogiste: {}".format(items[choose]))
-				pnt = check(iachoice, choose + 1)
-				count += pnt
-				getpass.getpass("Presiona enter para continuar...")
+			points += 1
