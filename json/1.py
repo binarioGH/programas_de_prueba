@@ -18,10 +18,14 @@ if __name__ == '__main__':
 	}
 	'''
 	data = json.loads(jsontxt);
-	if(input(">") == "n"):
+	d = input(">")
+	if(d == "t"):
 		print("data: {}\n".format(data));
 		print("Type: {}".format(type(data)));
 		print("\npersons: {}".format(data["people"]));
+	elif(d == "d"):
+		newdata = json.dumps(data, indent=2		);
+		print(newdata);
 	else:
 		for info in data["people"]:
 			print("\n" + "-"*80 + "\n");
