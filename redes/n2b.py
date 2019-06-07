@@ -1,15 +1,14 @@
 #-*-coding: utf-8-*-
-
 def getBin(num):
 	if num > 255:
-		return False
+	    return False
+
 	else:
-		bits = (128,64,32,16,8,4,2)
-		byte = ""
-		for n in bits:
-			if n >= num:
-				num -= n
-				byte += "1"
-			else:
-				byte += "0"
-    return byte
+		binary = [""] * 8
+		for bit in range(len(binary)):
+			binary[bit] = str(num % 2)
+			num = int(num / 2)
+	binary = "".join(binary)
+	binary = binary[::-1]
+	return binary
+
