@@ -8,6 +8,13 @@ def main():
 	service = "imap.gmail.com"
 	conn = imaplib.IMAP4_SSL(service)
 	conn.login(user, password)
+	conn.select("INBOX")
+	newdir = input("Enter the name of the new item: ")
+	conn.create(newdir)
+	conn.list()
+	result, data = mail.uid("search", None, "ALL")
+	
+
 
 
 
